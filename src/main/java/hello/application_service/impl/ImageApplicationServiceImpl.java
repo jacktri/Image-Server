@@ -17,7 +17,11 @@ public class ImageApplicationServiceImpl implements ImageApplicationService {
     public List<ImageCmd> getImages(){
        return imageDataService.findAll();
     }
+
     public boolean addImages(List<ImageCmd> images){
         return imageDataService.saveImages(images);
+    }
+    public boolean addImage(ImageCmd image){
+        return imageDataService.saveImage(image);
     }
 }

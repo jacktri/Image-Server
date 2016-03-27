@@ -7,4 +7,5 @@ import java.util.List;
 public interface ImageDataService {
     List<ImageCmd> findAll();
     boolean saveImages(List<ImageCmd> images);
+    boolean saveImage(ImageCmd image);
 }

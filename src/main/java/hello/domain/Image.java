@@ -3,7 +3,7 @@ package hello.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "images")
 public class Image {
@@ -11,12 +11,13 @@ public class Image {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String image;
-    private String user;
+    private String uploader;
     private String tutorial;
 
-    public Image(String image, String user, String tutorial) {
+    public Image(){}
+    public Image(String image, String uploader, String tutorial) {
         this.image = image;
-        this.user = user;
+        this.uploader = uploader;
         this.tutorial = tutorial;
     }
 
@@ -36,12 +37,12 @@ public class Image {
         this.image = image;
     }
 
-    public String getUser() {
-        return user;
+    public String getUploader() {
+        return uploader;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUploader(String uploader) {
+        this.uploader = uploader;
     }
 
     public String getTutorial() {

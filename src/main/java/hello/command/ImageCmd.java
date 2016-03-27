@@ -1,27 +1,17 @@
 package hello.command;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ImageCmd {
-    private Integer id;
     private String image;
-    private String user;
+    private String uploader;
     private String tutorial;
 
-    public ImageCmd(Integer id, String image, String user, String tutorial) {
-        this.id = id;
+    public ImageCmd(){
+
+    }
+    public ImageCmd(String image, String uploader, String tutorial) {
         this.image = image;
-        this.user = user;
+        this.uploader = uploader;
         this.tutorial = tutorial;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getImage() {
@@ -32,12 +22,12 @@ public class ImageCmd {
         this.image = image;
     }
 
-    public String getUser() {
-        return user;
+    public String getUploader() {
+        return uploader;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUploader(String uploader) {
+        this.uploader = uploader;
     }
 
     public String getTutorial() {

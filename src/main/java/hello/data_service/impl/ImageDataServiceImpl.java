@@ -4,6 +4,7 @@ import hello.command.ImageCmd;
 import hello.data_access.ImageRepository;
 import hello.data_service.ImageDataService;
 import hello.domain.Image;
+import hello.exceptions.ErrorUploadingImageException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -23,13 +24,22 @@ public class ImageDataServiceImpl implements ImageDataService {
     }
 
     protected ImageCmd setImageCmd(Image image) {
-        return new ImageCmd(image.getId(), image.getImage(), image.getUser(), image.getTutorial());
+        return new ImageCmd(image.getImage(), image.getUploader(), image.getTutorial());
     }
     protected Image setImage(ImageCmd imageCmd){
-        return new Image(imageCmd.getImage(), imageCmd.getUser(), imageCmd.getTutorial());
+        return new Image(imageCmd.getImage(), imageCmd.getUploader(), imageCmd.getTutorial());
     }
     public boolean saveImages(List<ImageCmd> images){
         images.stream().forEach((image) -> imageRepository.save(setImage(image)));
+        return true;
+    }
+    public boolean saveImage(ImageCmd image){
+        try {
+            imageRepository.save(setImage(image));
+        }
+        catch(Exception exception){
+            throw new ErrorUploadingImageException(1);
+        }
         return true;
     }
 }

@@ -19,6 +19,7 @@ public class ImageController {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<ImageCmd> get() {
+        System.out.println("heck");
         List<ImageCmd> images = imageApplicationService.getImages();
         if(images == null){
             throw new ImageNotFoundException(4);
@@ -27,11 +28,14 @@ public class ImageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public String add(@RequestBody List<ImageCmd> images) {
-        if(imageApplicationService == null) {
-            throw new ErrorUploadingImageException(images.size());
+//    @ResponseStatus(HttpStatus.CREATED)
+    public String add(@RequestBody ImageCmd image) {
+        System.out.println("in here");
+       boolean result =  imageApplicationService.addImage(image);
+        if(result!=true) {
+            throw new ErrorUploadingImageException(1);
         }
+        int i = 4;
         return "images uploaded successfully";
     }
     @ExceptionHandler(ImageNotFoundException.class)
