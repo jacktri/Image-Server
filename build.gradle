@@ -34,6 +34,8 @@ dependencies {
     compile("org.springframework:spring-jdbc:4.2.4.RELEASE")
     compile("com.fasterxml.jackson.core:jackson-databind")
     compile("org.liquibase:liquibase-core:3.3.3")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     testCompile("junit:junit")
 }

@@ -2,16 +2,16 @@ package hello.command;
 
 public class ImageCmd {
     private String image;
-    private String uploader;
-    private String tutorial;
+    private String imageType;
+    private String comment;
 
-    public ImageCmd(){
-
+    public ImageCmd() {
     }
-    public ImageCmd(String image, String uploader, String tutorial) {
+
+    public ImageCmd(String image, String imageType, String comment) {
         this.image = image;
-        this.uploader = uploader;
-        this.tutorial = tutorial;
+        this.imageType = imageType;
+        this.comment = comment;
     }
 
     public String getImage() {
@@ -22,19 +22,19 @@ public class ImageCmd {
         this.image = image;
     }
 
-    public String getUploader() {
-        return uploader;
+    public String getImageType() {
+        return imageType;
     }
 
-    public void setUploader(String uploader) {
-        this.uploader = uploader;
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
-    public String getTutorial() {
-        return tutorial;
+    public String getComment() {
+        return comment;
     }
 
-    public void setTutorial(String tutorial) {
-        this.tutorial = tutorial;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

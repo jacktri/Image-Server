@@ -4,21 +4,21 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet author="jack" id="1.0.1">
-        <createTable tableName="images">
+    <changeSet author="jack" id="1.0.2">
+        <createTable tableName="comments">
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
-            </column>
-
-            <column name="image" type="text">
-                <constraints nullable="false"/>
             </column>
 
             <column name="uploader" type="text">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="tutorial" type="text">
+            <column name="content" type="text">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="tutorialname" type="text">
                 <constraints nullable="false"/>
             </column>
         </createTable>

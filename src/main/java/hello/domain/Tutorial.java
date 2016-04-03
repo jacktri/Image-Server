@@ -3,22 +3,26 @@ package hello.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-@Table(name = "images")
-public class Image {
+@Table(name = "tutorial")
+public class Tutorial {
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private String image;
     private String uploader;
-    private String tutorial;
+    private String name;
 
-    public Image(){}
-    public Image(String image, String uploader, String tutorial) {
-        this.image = image;
+    public Tutorial(String uploader, String name) {
+
         this.uploader = uploader;
-        this.tutorial = tutorial;
+        this.name = name;
+    }
+
+    public Tutorial() {
+
     }
 
     public Integer getId() {
@@ -29,14 +33,6 @@ public class Image {
         this.id = id;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getUploader() {
         return uploader;
     }
@@ -45,11 +41,12 @@ public class Image {
         this.uploader = uploader;
     }
 
-    public String getTutorial() {
-        return tutorial;
+    public String getName() {
+        return name;
     }
 
-    public void setTutorial(String tutorial) {
-        this.tutorial = tutorial;
+    public void setName(String name) {
+        this.name = name;
     }
+
 }
